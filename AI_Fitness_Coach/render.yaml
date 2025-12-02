@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fitnesscoach
+    env: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    autoDeploy: true
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
